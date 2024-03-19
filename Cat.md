@@ -5,6 +5,4 @@ Rules:
 3. Annoys people
 4. Has nine lives
 
-5. ![Cat](C:\Users\Korisnik\Downloads\cat.png)
-Format: ![Alt Text](url)
-![image](https://github.com/lmajetic/Razvoj_desktop_aplikacija/assets/128255317/cbf79636-a060-436d-8c20-828f3abdfc65)
+5. ![alt text]([http://url/to/img.png](https://www.michiganhumane.org/wp-content/uploads/2018/07/Cat-Google-Maps-1080x675.png)https://www.michiganhumane.org/wp-content/uploads/2018/07/Cat-Google-Maps-1080x675.png)
