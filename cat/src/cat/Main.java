@@ -3,6 +3,7 @@ package cat;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JButton;
 
 public class Main {
 
@@ -38,6 +39,18 @@ public class Main {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnPurr = new JButton("Purr");
+		btnPurr.setBounds(10, 92, 113, 43);
+		frame.getContentPane().add(btnPurr);
+		
+		JButton btnMeow = new JButton("Meow");
+		btnMeow.setBounds(10, 11, 113, 43);
+		frame.getContentPane().add(btnMeow);
+		
+		JButton btnHiss = new JButton("Hiss");
+		btnHiss.setBounds(173, 11, 113, 43);
+		frame.getContentPane().add(btnHiss);
 	}
-
 }
