@@ -4,10 +4,13 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 public class Main {
 
 	private JFrame frame;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -52,5 +55,14 @@ public class Main {
 		JButton btnHiss = new JButton("Hiss");
 		btnHiss.setBounds(173, 11, 113, 43);
 		frame.getContentPane().add(btnHiss);
+		
+		textField = new JTextField();
+		textField.setBounds(173, 100, 153, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Name:");
+		lblNewLabel.setBounds(173, 84, 46, 14);
+		frame.getContentPane().add(lblNewLabel);
 	}
 }
