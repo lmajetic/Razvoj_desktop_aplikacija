@@ -14,15 +14,22 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import net.miginfocom.swing.MigLayout;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Choice;
+import java.awt.Label;
+import java.awt.TextField;
+import javax.swing.JTextArea;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.Window.Type;
 
 public class Main {
 
-	private JFrame frame;
-	private JTextField textField;
+	private JFrame frmCat;
 
 	/**
 	 * Launch the application.
@@ -32,7 +39,7 @@ public class Main {
 			public void run() {
 				try {
 					Main window = new Main();
-					window.frame.setVisible(true);
+					window.frmCat.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,61 +58,59 @@ public class Main {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 314);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCat = new JFrame();
+		frmCat.setTitle("Cat");
+		frmCat.setBounds(100, 100, 450, 350);
+		frmCat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton btnMeow = new JButton("Meow");
+		btnMeow.setBounds(33, 7, 91, 38);
 		btnMeow.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (btnMeow.getText() == "Meow") {
+					btnMeow.setText("Mrow");
+				}
+				else btnMeow.setText("Meow");
 			}
 		});
 		
 		JButton btnPurr = new JButton("Purr");
+		btnPurr.setBounds(163, 7, 95, 38);
+		btnPurr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (btnPurr.getText() == "Purr") {
+					btnPurr.setText("Angry");
+					btnPurr.setEnabled(false);
+					try {
+						  Thread.sleep(5000);
+						} catch (InterruptedException e1) {
+						  Thread.currentThread().interrupt();
+						}
+					btnPurr.setEnabled(true);
+				}
+				else btnPurr.setText("Purr");
+			}
+		});
 		
 		JLabel label = new JLabel("");
 		
-		JLabel lblNewLabel = new JLabel("Name:");
-		
 		JButton btnHiss = new JButton("Hiss");
+		btnHiss.setBounds(163, 64, 95, 38);
+		frmCat.getContentPane().setLayout(null);
+		frmCat.getContentPane().add(btnMeow);
+		frmCat.getContentPane().add(btnHiss);
+		frmCat.getContentPane().add(btnPurr);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(7)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(btnMeow, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(btnHiss, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(59)
-							.addComponent(lblNewLabel))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(60)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(45)
-							.addComponent(btnPurr, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)))
-					.addGap(104))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(7)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnMeow, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnPurr, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addComponent(lblNewLabel)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnHiss, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-					.addGap(1))
-		);
-		frame.getContentPane().setLayout(groupLayout);
+		JButton btnAddCat = new JButton("Add cat");
+		btnAddCat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				catask dlg = new catask();
+				dlg.setVisible(true);
+			}
+		});
+		btnAddCat.setBounds(33, 67, 89, 32);
+		frmCat.getContentPane().add(btnAddCat);
+		
+		
 	}
 }
