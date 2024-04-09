@@ -111,6 +111,17 @@ public class Main {
 		btnAddCat.setBounds(33, 67, 89, 32);
 		frmCat.getContentPane().add(btnAddCat);
 		
+		JButton btnListCats = new JButton("List cats");
+		btnListCats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//novi prozor
+				DlgListCats dlg = new DlgListCats();
+				dlg.setVisible(true);
+			}
+		});
+		btnListCats.setBounds(35, 124, 91, 38);
+		frmCat.getContentPane().add(btnListCats);
+		
 		
 	}
 }
