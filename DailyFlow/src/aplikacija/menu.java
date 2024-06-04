@@ -25,7 +25,7 @@ import javax.swing.DefaultComboBoxModel;
 public class menu {
 
 	private JFrame frame;
-	//Global instance; D:
+	//Global instance;
 
 
 	/**
