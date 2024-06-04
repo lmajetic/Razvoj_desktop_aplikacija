@@ -82,7 +82,7 @@ public class prijave extends JFrame {
 		JButton btnGostLogin = new JButton("Ulaz kao gost");
 		btnGostLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Ulogirani ste kao gost!\nNeke usluge neće biti dostupne dok se ne ulogirate!","Uspjeh!", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Ulogirani ste kao gost!\nNeke usluge nece biti dostupne dok se ne ulogirate!","Uspjeh!", JOptionPane.INFORMATION_MESSAGE);
 				dispose();
 				menu window = new menu();
 				window.setJFrameVisible(true);
